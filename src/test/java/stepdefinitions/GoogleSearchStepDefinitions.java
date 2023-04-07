@@ -13,9 +13,6 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class GoogleSearchStepDefinitions {
 
-    private SelenideElement
-            googleSearchBar = $("input[name='q']");
-
     @Given("I am on the Google homepage")
     public void iAmOnTheGoogleHomepage() {
         open("https://www.google.com");
@@ -30,7 +27,7 @@ public class GoogleSearchStepDefinitions {
 
     @When("I search for {string}")
     public void iSearchFor(String query) {
-        googleSearchBar.setValue(query).pressEnter();
+        $("input[name='q']").setValue(query).pressEnter();
     }
 
     @Then("I should see search results")
